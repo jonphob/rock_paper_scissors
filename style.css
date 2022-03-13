@@ -33,6 +33,12 @@ body {
   transition: 300ms;
 }
 
+.select-btn:disabled,
+.select-btn:hover:disabled {
+  cursor: default;
+  background-color: gray;
+}
+
 .select-btn:hover {
   background-color: rgb(89, 89, 255);
 }

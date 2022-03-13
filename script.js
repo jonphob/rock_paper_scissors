@@ -4,19 +4,8 @@ const scissors = document.querySelector("#scissors");
 const player_choice = document.querySelector(".p-choice-text");
 const comp_choice = document.querySelector(".c-choice-text");
 const choices = document.querySelector(".round-choices");
-console.log(choices);
 const btn_container = document.querySelector(".btn-container");
-
-btn_container.addEventListener("click", (e) => {
-  e.stopPropagation();
-  let c = computerPlay();
-  let p = e.target.id;
-  playRound(c, p);
-  comp_choice.innerText = c;
-  player_choice.innerText = p;
-  choices.classList.remove("hidden");
-});
-
+let roundCounter = 0;
 let playerScore = 0;
 let computerScore = 0;
 
@@ -33,41 +22,54 @@ const computerPlay = () => {
   }
 };
 
+const handleClick = (e) => {
+  e.stopPropagation();
+  playRound(computerPlay(), e.target.id);
+};
+
+btn_container.addEventListener("click", handleClick);
+
 // play round function
 const playRound = (c, p) => {
   console.log(`Player chose: ${p}, Computer chose ${c}`);
   if (p === c) {
-    return 0;
+    calcScore(0);
   } else if (
     (p === "rock" && c === "scissors") ||
     (p === "scissors" && c === "paper") ||
     (p === "paper" && c === "rock")
   ) {
-    return 1;
+    calcScore(1);
   } else {
-    return -1;
+    calcScore(-1);
   }
 };
 
-// const game = () => {
-//   let computerSelection = computerPlay();
-//   let result = playRound(computerSelection, playerSelection);
+const calcScore = (result) => {
+  roundCounter++;
+  console.log(`Round ${roundCounter}`);
+  if (result === 1) {
+    playerScore++;
+    console.log("You win");
+  } else if (result === -1) {
+    computerScore++;
+    console.log("You lose");
+  } else {
+    console.log("It's a draw");
+  }
+  console.log(`Player Score: ${playerScore}, Computer Score: ${computerScore}`);
 
-//   if (result === 1) {
-//     playerScore++;
-//   } else if (result === -1) {
-//     computerScore++;
-//   }
+  if (playerScore === 5) {
+    console.log(`Game Over: You Win`);
+    btn_container.removeEventListener("click", handleClick);
+  } else if (computerScore === 5) {
+    console.log("You lost");
+    btn_container.removeEventListener("click", handleClick);
+  }
+};
 
-//   console.log(`Player Score: ${playerScore}, Computer Score: ${computerScore}`);
-// };
-
-//game();
-
-// if (playerScore > computerScore) {
-//   console.log("You win");
-// } else if (playerScore < computerScore) {
-//   console.log("You lose");
-// } else {
-//   console.log("It's a draw");
-// }
+const reset = () => {
+  roundCounter = 0;
+  playerScore = 0;
+  computerScore = 0;
+};
