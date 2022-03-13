@@ -4,9 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Rock, Paper, Scissors</title>
   </head>
   <body>
-    <script src="script.js"></script>
+    <div class="container">
+      <h1>Rock, Paper, Scissors</h1>
+
+      <p class="instructions">You against the computer, best of 5</p>
+      <p class="choose">Choose your weapon!</p>
+      <div class="btn-container">
+        <button class="select-btn" id="rock">👊</button>
+        <button class="select-btn" id="paper">🤚</button>
+        <button class="select-btn" id="scissors">✌</button>
+      </div>
+      <div class="round-choices hidden">
+        <p class="player-choice">
+          You chose <span class="p-choice-text"></span>
+        </p>
+        <p class="computer-choice">
+          Computer chose <span class="c-choice-text"></span>
+        </p>
+      </div>
+      <div class="score-container"></div>
+    </div>
+    <script src="script.js" defer></script>
   </body>
 </html>

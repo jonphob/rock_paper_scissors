@@ -1,3 +1,22 @@
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+const player_choice = document.querySelector(".p-choice-text");
+const comp_choice = document.querySelector(".c-choice-text");
+const choices = document.querySelector(".round-choices");
+console.log(choices);
+const btn_container = document.querySelector(".btn-container");
+
+btn_container.addEventListener("click", (e) => {
+  e.stopPropagation();
+  let c = computerPlay();
+  let p = e.target.id;
+  playRound(c, p);
+  comp_choice.innerText = c;
+  player_choice.innerText = p;
+  choices.classList.remove("hidden");
+});
+
 let playerScore = 0;
 let computerScore = 0;
 
@@ -30,28 +49,25 @@ const playRound = (c, p) => {
   }
 };
 
-const game = () => {
-  let playerSelection = prompt().toLowerCase();
-  let computerSelection = computerPlay();
-  let result = playRound(computerSelection, playerSelection);
+// const game = () => {
+//   let computerSelection = computerPlay();
+//   let result = playRound(computerSelection, playerSelection);
 
-  if (result === 1) {
-    playerScore++;
-  } else if (result === -1) {
-    computerScore++;
-  }
+//   if (result === 1) {
+//     playerScore++;
+//   } else if (result === -1) {
+//     computerScore++;
+//   }
 
-  console.log(`Player Score: ${playerScore}, Computer Score: ${computerScore}`);
-};
+//   console.log(`Player Score: ${playerScore}, Computer Score: ${computerScore}`);
+// };
 
-for (let i = 0; i < 5; i++) {
-  game();
-}
+//game();
 
-if (playerScore > computerScore) {
-  console.log("You win");
-} else if (playerScore < computerScore) {
-  console.log("You lose");
-} else {
-  console.log("It's a draw");
-}
+// if (playerScore > computerScore) {
+//   console.log("You win");
+// } else if (playerScore < computerScore) {
+//   console.log("You lose");
+// } else {
+//   console.log("It's a draw");
+// }
