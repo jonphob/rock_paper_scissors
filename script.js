@@ -17,7 +17,6 @@ const computerPlay = () => {
 // play round function
 const playRound = (c, p) => {
   console.log(`Player chose: ${p}, Computer chose ${c}`);
-
   if (p === c) {
     return 0;
   } else if (
