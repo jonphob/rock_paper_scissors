@@ -40,13 +40,15 @@ const endGame = (winner) => {
   btn_container.removeEventListener("click", handleClick);
 };
 
-const resetGame = () => {
+const resgitetGame = () => {
   roundCounter = 0;
   playerScore = 0;
   computerScore = 0;
   playerScoreTable.innerText = 0;
   computerScoreTable.innerText = 0;
   modal.style.display = "none";
+  playerChoice.innerText = " ";
+  computerChoice.innerText = " ";
 
   btn_container.addEventListener("click", handleClick);
 };
@@ -89,10 +91,4 @@ const calcScore = (result) => {
   } else if (computerScore === 5) {
     endGame("You Lost");
   }
-};
-
-const reset = () => {
-  roundCounter = 0;
-  playerScore = 0;
-  computerScore = 0;
 };
