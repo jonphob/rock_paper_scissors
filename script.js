@@ -40,7 +40,7 @@ const endGame = (winner) => {
   btn_container.removeEventListener("click", handleClick);
 };
 
-const resgitetGame = () => {
+const resetGame = () => {
   roundCounter = 0;
   playerScore = 0;
   computerScore = 0;
