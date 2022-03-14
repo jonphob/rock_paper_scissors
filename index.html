@@ -12,23 +12,57 @@
     <div class="container">
       <h1>Rock, Paper, Scissors</h1>
 
-      <p class="instructions">You against the computer, best of 5</p>
+      <p class="instructions">You against the computer, first to 5</p>
       <p class="choose">Choose your weapon!</p>
       <div class="btn-container">
         <button class="select-btn" id="rock">👊</button>
         <button class="select-btn" id="paper">🤚</button>
         <button class="select-btn" id="scissors">✌</button>
       </div>
-      <div class="round-choices hidden">
-        <p class="player-choice">
-          You chose <span class="p-choice-text"></span>
-        </p>
-        <p class="computer-choice">
-          Computer chose <span class="c-choice-text"></span>
-        </p>
+      <div class="round-choices">
+        <div class="player">
+          <p class="round-text">Your Choice</p>
+          <p class="player-choice choice"></p>
+        </div>
+        
+        <div class="computer">
+          <p class="round-text">Computer Choice</p>
+          <p class="computer-choice choice"></p>
+        </div>
       </div>
-      <div class="score-container"></div>
+      <div class="score-container">
+        <h2>Score</h2>
+        <div class="score-table">
+          <table>
+            <thead>
+              <th>Player</th>
+              <th>Computer</th>
+            </thead>
+            <tbody>
+              <td id="player">0</td>
+              <td id="computer">0</td>
+            </tbody>
+          </table>
+        </div->
+      </div>
     </div>
+
+    <!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      
+      <h2>Result</h2>
+    </div>
+    <div class="modal-body">
+      <div class="modal-text">You Win</div>
+       <button class="btn-play-again">Play Again</button>
+      </div>
+  </div>
+
+</div>    
     <script src="script.js" defer></script>
   </body>
 </html>

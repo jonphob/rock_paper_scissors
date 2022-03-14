@@ -20,16 +20,20 @@ body {
   text-align: center;
 }
 
+.btn-container {
+  margin-bottom: 20px;
+}
+
 .select-btn {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   cursor: pointer;
   margin-inline: 20px;
   margin-top: 40px;
   border-radius: 5px;
   background-color: blue;
   color: white;
-  font-size: 150px;
+  font-size: 120px;
   transition: 300ms;
 }
 
@@ -46,13 +50,127 @@ body {
 .round-choices {
   display: flex;
   justify-content: space-around;
+  margin-bottom: 20px;
+  height: 110px;
+}
+
+.round-result-text {
+  display: flex;
+  flex-grow: inherit;
+  align-items: center;
+  justify-content: center;
 }
 
 .hidden {
   display: none;
 }
 
-.p-choice-text,
-.c-choice-text {
-  display: block;
+.round-text {
+  font-size: 1.3rem;
+}
+
+.choice {
+  font-size: 1.1rem;
+}
+
+.score-table {
+  display: flex;
+  justify-content: center;
+}
+
+th,
+td {
+  padding: 30px;
+  width: 100px;
+}
+
+table,
+th,
+td {
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  justify-content: center;
+
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  animation-name: fadeIn;
+  animation-duration: 0.4s;
+}
+
+/* Modal Content */
+.modal-content {
+  position: fixed;
+  background-color: #fefefe;
+  width: 75%;
+  bottom: 400px;
+  animation-name: slideIn;
+  animation-duration: 0.4s;
+  border-radius: 10px;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.modal-body {
+  padding: 20px 16px;
+}
+
+.modal-text {
+  font-size: 3rem;
+}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+/* Add Animation */
+
+@keyframes slideIn {
+  from {
+    bottom: 300px;
+    opacity: 0;
+  }
+  to {
+    bottom: 400px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.btn-play-again {
+  margin-top: 10px;
+  cursor: pointer;
+  width: 250px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+
+.btn-play-again:hover {
+  background-color: #e6e6e6;
 }
